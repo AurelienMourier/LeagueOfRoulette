@@ -42,7 +42,7 @@ namespace LeagueOfRouletteAPI.Repositories.Classes
         public void UpdateBackpack(int backpackId, Backpack backpack)
         {
             Backpack backpackEntity = _context.Backpack.Find(backpackId);
-            backpackEntity.BackpackCard = backpack.BackpackCard;
+            backpackEntity.BackpackCards = backpack.BackpackCards;
 
             _context.Backpack.Update(backpackEntity);
             _context.SaveChanges();

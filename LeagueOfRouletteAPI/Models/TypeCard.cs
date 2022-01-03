@@ -7,7 +7,7 @@ namespace LeagueOfRouletteAPI.Models
 {
     public class TypeCard
     {
-        public int Id { get; set; }
+        public int TypeCardId { get; set; }
         public string Name { get; set; }
     }
 }

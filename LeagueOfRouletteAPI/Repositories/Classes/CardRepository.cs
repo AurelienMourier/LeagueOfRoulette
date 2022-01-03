@@ -43,13 +43,13 @@ namespace LeagueOfRouletteAPI.Repositories.Classes
         {
             Card cardEntity = _context.Card.Find(cardId);
 
-            cardEntity.BackpackCard = card.BackpackCard;
+            cardEntity.BackpackCards = card.BackpackCards;
             cardEntity.Name = card.Name;
             cardEntity.Rarity = card.Rarity;
             cardEntity.RarityCardId = card.RarityCardId;
-            cardEntity.Stat = card.Stat;
+            cardEntity.StatCard = card.StatCard;
             cardEntity.StatCardId = card.StatCardId;
-            cardEntity.Type = card.Type;
+            cardEntity.TypeCard = card.TypeCard;
             cardEntity.TypeCardId = card.TypeCardId;
             cardEntity.ImageUrl = card.ImageUrl;
 

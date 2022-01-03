@@ -7,7 +7,7 @@ namespace LeagueOfRouletteAPI.Models
 {
     public class StatCard
     {
-        public int Id { get; set; }
+        public int StatCardId { get; set; }
         public double AD { get; set; }
         public double AP { get; set; }
         public double AR { get; set; }

@@ -21,19 +21,19 @@ namespace LeagueOfRouletteAPI.Migrations
 
             modelBuilder.Entity("LeagueOfRouletteAPI.Models.Backpack", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<int>("BackpackId")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.HasKey("Id");
+                    b.HasKey("BackpackId");
 
                     b.ToTable("Backpack");
                 });
 
             modelBuilder.Entity("LeagueOfRouletteAPI.Models.BackpackCard", b =>
                 {
-                    b.Property<int>("id")
+                    b.Property<int>("BackpackCardId")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
@@ -44,7 +44,7 @@ namespace LeagueOfRouletteAPI.Migrations
                     b.Property<int>("CardId")
                         .HasColumnType("int");
 
-                    b.HasKey("id");
+                    b.HasKey("BackpackCardId");
 
                     b.HasIndex("BackpackId");
 
@@ -55,7 +55,7 @@ namespace LeagueOfRouletteAPI.Migrations
 
             modelBuilder.Entity("LeagueOfRouletteAPI.Models.Card", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<int>("CardId")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
@@ -75,7 +75,7 @@ namespace LeagueOfRouletteAPI.Migrations
                     b.Property<int>("TypeCardId")
                         .HasColumnType("int");
 
-                    b.HasKey("Id");
+                    b.HasKey("CardId");
 
                     b.HasIndex("RarityCardId");
 
@@ -88,7 +88,7 @@ namespace LeagueOfRouletteAPI.Migrations
 
             modelBuilder.Entity("LeagueOfRouletteAPI.Models.RarityCard", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<int>("RarityCardId")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
@@ -96,7 +96,7 @@ namespace LeagueOfRouletteAPI.Migrations
                     b.Property<string>("Name")
                         .HasColumnType("nvarchar(max)");
 
-                    b.HasKey("Id");
+                    b.HasKey("RarityCardId");
 
                     b.ToTable("RarityCard");
                 });
@@ -131,7 +131,7 @@ namespace LeagueOfRouletteAPI.Migrations
 
             modelBuilder.Entity("LeagueOfRouletteAPI.Models.StatCard", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<int>("StatCardId")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
@@ -154,14 +154,14 @@ namespace LeagueOfRouletteAPI.Migrations
                     b.Property<double>("MV")
                         .HasColumnType("float");
 
-                    b.HasKey("Id");
+                    b.HasKey("StatCardId");
 
                     b.ToTable("StatCard");
                 });
 
             modelBuilder.Entity("LeagueOfRouletteAPI.Models.TypeCard", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<int>("TypeCardId")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
@@ -169,7 +169,7 @@ namespace LeagueOfRouletteAPI.Migrations
                     b.Property<string>("Name")
                         .HasColumnType("nvarchar(max)");
 
-                    b.HasKey("Id");
+                    b.HasKey("TypeCardId");
 
                     b.ToTable("TypeCard");
                 });
@@ -358,13 +358,13 @@ namespace LeagueOfRouletteAPI.Migrations
             modelBuilder.Entity("LeagueOfRouletteAPI.Models.BackpackCard", b =>
                 {
                     b.HasOne("LeagueOfRouletteAPI.Models.Backpack", "Backpack")
-                        .WithMany("BackpackCard")
+                        .WithMany("BackpackCards")
                         .HasForeignKey("BackpackId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.HasOne("LeagueOfRouletteAPI.Models.Card", "Card")
-                        .WithMany("BackpackCard")
+                        .WithMany("BackpackCards")
                         .HasForeignKey("CardId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -378,13 +378,13 @@ namespace LeagueOfRouletteAPI.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("LeagueOfRouletteAPI.Models.StatCard", "Stat")
+                    b.HasOne("LeagueOfRouletteAPI.Models.StatCard", "StatCard")
                         .WithMany()
                         .HasForeignKey("StatCardId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("LeagueOfRouletteAPI.Models.TypeCard", "Type")
+                    b.HasOne("LeagueOfRouletteAPI.Models.TypeCard", "TypeCard")
                         .WithMany()
                         .HasForeignKey("TypeCardId")
                         .OnDelete(DeleteBehavior.Cascade)

@@ -7,7 +7,7 @@ namespace LeagueOfRouletteAPI.Models
 {
     public class RarityCard
     {
-        public int Id { get; set; }
+        public int RarityCardId { get; set; }
         public string Name { get; set; }
     }
 }

@@ -8,10 +8,12 @@ namespace LeagueOfRouletteAPI.Models
 {
     public class BackpackCard
     {
-        public int id { get; set; }
+        public int BackpackCardId { get; set; }
         public int BackpackId { get; set; }
+        [ForeignKey("BackpackId")]
         public Backpack Backpack { get; set; }
         public int CardId { get; set; }
+        [ForeignKey("CardId")]
         public Card Card { get; set; }
     }
 }
