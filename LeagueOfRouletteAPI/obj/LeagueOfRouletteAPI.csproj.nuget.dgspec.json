@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\JEROME CHARLAT\\Desktop\\LeagueOfRoulette\\LeagueOfRouletteAPI\\LeagueOfRouletteAPI.csproj": {}
+    "C:\\2.COURS\\C#\\LeagueOfRoulette\\LeagueOfRouletteAPI\\LeagueOfRouletteAPI\\LeagueOfRouletteAPI.csproj": {}
   },
   "projects": {
-    "C:\\Users\\JEROME CHARLAT\\Desktop\\LeagueOfRoulette\\LeagueOfRouletteAPI\\LeagueOfRouletteAPI.csproj": {
+    "C:\\2.COURS\\C#\\LeagueOfRoulette\\LeagueOfRouletteAPI\\LeagueOfRouletteAPI\\LeagueOfRouletteAPI.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\JEROME CHARLAT\\Desktop\\LeagueOfRoulette\\LeagueOfRouletteAPI\\LeagueOfRouletteAPI.csproj",
+        "projectUniqueName": "C:\\2.COURS\\C#\\LeagueOfRoulette\\LeagueOfRouletteAPI\\LeagueOfRouletteAPI\\LeagueOfRouletteAPI.csproj",
         "projectName": "LeagueOfRouletteAPI",
-        "projectPath": "C:\\Users\\JEROME CHARLAT\\Desktop\\LeagueOfRoulette\\LeagueOfRouletteAPI\\LeagueOfRouletteAPI.csproj",
-        "packagesPath": "C:\\Users\\JEROME CHARLAT\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\JEROME CHARLAT\\Desktop\\LeagueOfRoulette\\LeagueOfRouletteAPI\\obj\\",
+        "projectPath": "C:\\2.COURS\\C#\\LeagueOfRoulette\\LeagueOfRouletteAPI\\LeagueOfRouletteAPI\\LeagueOfRouletteAPI.csproj",
+        "packagesPath": "C:\\Users\\mouri\\.nuget\\packages\\",
+        "outputPath": "C:\\2.COURS\\C#\\LeagueOfRoulette\\LeagueOfRouletteAPI\\LeagueOfRouletteAPI\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\JEROME CHARLAT\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\mouri\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -103,7 +103,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.402\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.401\\RuntimeIdentifierGraph.json"
         }
       }
     }

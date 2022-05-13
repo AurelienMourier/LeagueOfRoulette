@@ -6,7 +6,7 @@
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
     <WarningLevel>5</WarningLevel>
-    <DocumentationFile>C:\Users\JEROME CHARLAT\Desktop\LeagueOfRoulette\LeagueOfRouletteAPI\LeagueOfRouletteAPI.xml</DocumentationFile>
+    <DocumentationFile>C:\2.COURS\C#\LeagueOfRoulette\LeagueOfRouletteAPI\LeagueOfRouletteAPI\LeagueOfRouletteAPI.xml</DocumentationFile>
   </PropertyGroup>
 
   <ItemGroup>

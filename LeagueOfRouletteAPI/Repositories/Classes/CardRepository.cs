@@ -1,6 +1,7 @@
 ﻿using LeagueOfRouletteAPI.Context;
 using LeagueOfRouletteAPI.Models;
 using LeagueOfRouletteAPI.Repositories.Interfaces;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -36,7 +37,7 @@ namespace LeagueOfRouletteAPI.Repositories.Classes
 
         public IEnumerable<Card> GetCards()
         {
-            return _context.Card.ToList();
+            return _context.Card.Include(c => c.TypeCard).Include(c => c.RarityCard).ToList();
         }
 
         public void UpdateCard(int cardId, Card card)
@@ -44,8 +45,9 @@ namespace LeagueOfRouletteAPI.Repositories.Classes
             Card cardEntity = _context.Card.Find(cardId);
 
             cardEntity.BackpackCards = card.BackpackCards;
+            cardEntity.CardBoxs = card.CardBoxs;
             cardEntity.Name = card.Name;
-            cardEntity.Rarity = card.Rarity;
+            cardEntity.RarityCard = card.RarityCard;
             cardEntity.RarityCardId = card.RarityCardId;
             cardEntity.StatCard = card.StatCard;
             cardEntity.StatCardId = card.StatCardId;

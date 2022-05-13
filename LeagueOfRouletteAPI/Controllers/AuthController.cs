@@ -43,7 +43,10 @@ namespace LeagueOfRouletteAPI.Controllers
 
             if (userCreateResult.Succeeded)
             {
-                return Created(string.Empty, string.Empty);
+                var roles = await _userManager.GetRolesAsync(user);
+                return Ok(
+                    new { token = GenerateJwt(user, roles) }
+                    );
             }
 
             return Problem(userCreateResult.Errors.First().Description, null, 400);

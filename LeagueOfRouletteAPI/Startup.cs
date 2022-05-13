@@ -32,13 +32,11 @@ namespace LeagueOfRouletteAPI
 
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddDbContext<LORContext>(options => options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
+            services.AddDbContext<LORContext>(options => options.UseSqlServer(Configuration.GetConnectionString("AzureConnection")));
 
             services.AddIdentity<User, Role>(options =>
             {
                 options.Password.RequiredLength = 8;
-                options.Password.RequireNonAlphanumeric = true;
-                options.Password.RequireUppercase = true;
                 options.Password.RequireDigit = true;
                 options.Lockout.DefaultLockoutTimeSpan = TimeSpan.FromMinutes(1d);
                 options.Lockout.MaxFailedAccessAttempts = 5;
@@ -69,6 +67,7 @@ namespace LeagueOfRouletteAPI
             services.AddScoped<IRarityCardRepository, RarityCardRepository>();
             services.AddScoped<IStatCardRepository, StatCardRepository>();
             services.AddScoped<ITypeCardRepository, TypeCardRepository>();
+            services.AddScoped<IBoxRepository, BoxRepository>();
 
             services.AddControllers();
 

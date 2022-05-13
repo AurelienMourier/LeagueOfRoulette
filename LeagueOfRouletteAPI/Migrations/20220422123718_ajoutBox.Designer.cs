@@ -4,14 +4,16 @@ using LeagueOfRouletteAPI.Context;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace LeagueOfRouletteAPI.Migrations
 {
     [DbContext(typeof(LORContext))]
-    partial class LORContextModelSnapshot : ModelSnapshot
+    [Migration("20220422123718_ajoutBox")]
+    partial class ajoutBox
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -84,8 +86,8 @@ namespace LeagueOfRouletteAPI.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<string>("Description")
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<int?>("BoxId")
+                        .HasColumnType("int");
 
                     b.Property<string>("ImageUrl")
                         .HasColumnType("nvarchar(max)");
@@ -104,6 +106,8 @@ namespace LeagueOfRouletteAPI.Migrations
 
                     b.HasKey("CardId");
 
+                    b.HasIndex("BoxId");
+
                     b.HasIndex("RarityCardId");
 
                     b.HasIndex("StatCardId");
@@ -111,28 +115,6 @@ namespace LeagueOfRouletteAPI.Migrations
                     b.HasIndex("TypeCardId");
 
                     b.ToTable("Card");
-                });
-
-            modelBuilder.Entity("LeagueOfRouletteAPI.Models.CardBox", b =>
-                {
-                    b.Property<int>("CardBoxId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<int>("BoxId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("CardId")
-                        .HasColumnType("int");
-
-                    b.HasKey("CardBoxId");
-
-                    b.HasIndex("BoxId");
-
-                    b.HasIndex("CardId");
-
-                    b.ToTable("CardBox");
                 });
 
             modelBuilder.Entity("LeagueOfRouletteAPI.Models.RarityCard", b =>
@@ -421,7 +403,11 @@ namespace LeagueOfRouletteAPI.Migrations
 
             modelBuilder.Entity("LeagueOfRouletteAPI.Models.Card", b =>
                 {
-                    b.HasOne("LeagueOfRouletteAPI.Models.RarityCard", "RarityCard")
+                    b.HasOne("LeagueOfRouletteAPI.Models.Box", null)
+                        .WithMany("Cards")
+                        .HasForeignKey("BoxId");
+
+                    b.HasOne("LeagueOfRouletteAPI.Models.RarityCard", "Rarity")
                         .WithMany()
                         .HasForeignKey("RarityCardId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -436,21 +422,6 @@ namespace LeagueOfRouletteAPI.Migrations
                     b.HasOne("LeagueOfRouletteAPI.Models.TypeCard", "TypeCard")
                         .WithMany()
                         .HasForeignKey("TypeCardId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-                });
-
-            modelBuilder.Entity("LeagueOfRouletteAPI.Models.CardBox", b =>
-                {
-                    b.HasOne("LeagueOfRouletteAPI.Models.Box", "Box")
-                        .WithMany("CardBoxs")
-                        .HasForeignKey("BoxId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("LeagueOfRouletteAPI.Models.Card", "Card")
-                        .WithMany("CardBoxs")
-                        .HasForeignKey("CardId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });

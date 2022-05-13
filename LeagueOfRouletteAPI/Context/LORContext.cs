@@ -21,6 +21,8 @@ namespace LeagueOfRouletteAPI.Context
         public DbSet<RarityCard> RarityCard { get; set; }
         public DbSet<StatCard> StatCard { get; set; }
         public DbSet<TypeCard> TypeCard { get; set; }
+        public DbSet<Box> Box { get; set; }
+        public DbSet<CardBox> CardBox { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -33,6 +35,16 @@ namespace LeagueOfRouletteAPI.Context
                 .HasOne(bpc => bpc.Card)
                 .WithMany(c => c.BackpackCards)
                 .HasForeignKey(bpc => bpc.CardId);
+
+            modelBuilder.Entity<CardBox>()
+                .HasOne(box => box.Box)
+                .WithMany(Cbox => Cbox.CardBoxs)
+                .HasForeignKey(box => box.BoxId);
+
+            modelBuilder.Entity<CardBox>()
+                .HasOne(card => card.Card)
+                .WithMany(Bcard => Bcard.CardBoxs)
+                .HasForeignKey(card => card.CardId);
 
             base.OnModelCreating(modelBuilder);
         }

@@ -4,14 +4,16 @@ using LeagueOfRouletteAPI.Context;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace LeagueOfRouletteAPI.Migrations
 {
     [DbContext(typeof(LORContext))]
-    partial class LORContextModelSnapshot : ModelSnapshot
+    [Migration("20220506141055_addingBoxCard")]
+    partial class addingBoxCard
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -84,6 +86,9 @@ namespace LeagueOfRouletteAPI.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+                    b.Property<int?>("BoxId")
+                        .HasColumnType("int");
+
                     b.Property<string>("Description")
                         .HasColumnType("nvarchar(max)");
 
@@ -103,6 +108,8 @@ namespace LeagueOfRouletteAPI.Migrations
                         .HasColumnType("int");
 
                     b.HasKey("CardId");
+
+                    b.HasIndex("BoxId");
 
                     b.HasIndex("RarityCardId");
 
@@ -421,7 +428,11 @@ namespace LeagueOfRouletteAPI.Migrations
 
             modelBuilder.Entity("LeagueOfRouletteAPI.Models.Card", b =>
                 {
-                    b.HasOne("LeagueOfRouletteAPI.Models.RarityCard", "RarityCard")
+                    b.HasOne("LeagueOfRouletteAPI.Models.Box", null)
+                        .WithMany("Cards")
+                        .HasForeignKey("BoxId");
+
+                    b.HasOne("LeagueOfRouletteAPI.Models.RarityCard", "Rarity")
                         .WithMany()
                         .HasForeignKey("RarityCardId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -443,13 +454,13 @@ namespace LeagueOfRouletteAPI.Migrations
             modelBuilder.Entity("LeagueOfRouletteAPI.Models.CardBox", b =>
                 {
                     b.HasOne("LeagueOfRouletteAPI.Models.Box", "Box")
-                        .WithMany("CardBoxs")
+                        .WithMany()
                         .HasForeignKey("BoxId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.HasOne("LeagueOfRouletteAPI.Models.Card", "Card")
-                        .WithMany("CardBoxs")
+                        .WithMany()
                         .HasForeignKey("CardId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();

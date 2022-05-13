@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace LeagueOfRouletteAPI.Models
 {
-    public class Role : IdentityRole <Guid>
+    public class Role : IdentityRole<Guid>
     {
     }
 }

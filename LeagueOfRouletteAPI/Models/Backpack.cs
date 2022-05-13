@@ -9,6 +9,7 @@ namespace LeagueOfRouletteAPI.Models
     public class Backpack
     {
         public int BackpackId { get; set; }
+        public string Label { get; set; }
         public ICollection<BackpackCard> BackpackCards { get; set; }
     }
 }

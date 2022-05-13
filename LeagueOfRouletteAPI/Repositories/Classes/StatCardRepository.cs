@@ -18,6 +18,7 @@ namespace LeagueOfRouletteAPI.Repositories.Classes
         public void CreateStatCard(StatCard statCard)
         {
             _context.StatCard.Add(statCard);
+            _context.SaveChanges();
         }
 
         public void DeleteStatCard(int statCardId)

@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace LeagueOfRouletteAPI.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/statCard")]
     [ApiController]
     public class StatCardController : Controller
     {

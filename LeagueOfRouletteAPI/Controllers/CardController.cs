@@ -1,5 +1,8 @@
-﻿using LeagueOfRouletteAPI.Models;
+﻿using AutoMapper;
+using LeagueOfRouletteAPI.DTOs;
+using LeagueOfRouletteAPI.Models;
 using LeagueOfRouletteAPI.Repositories.Interfaces;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -12,17 +15,22 @@ namespace LeagueOfRouletteAPI.Controllers
     [ApiController]
     public class CardController : Controller
     {
+        private readonly IMapper _mapper;
         private readonly ICardRepository _cardRepository;
 
-        public CardController(ICardRepository cardRepository)
+        public CardController(IMapper mapper, ICardRepository cardRepository)
         {
+            _mapper = mapper;
             _cardRepository = cardRepository;
         }
 
         [HttpGet]
-        public ActionResult<IEnumerable<Card>> GetCard()
+        public ActionResult<IEnumerable<CardDto>> GetCard()
         {
-            return Ok(_cardRepository.GetCards());
+            var cards = _cardRepository.GetCards();
+            var cardsMapped = _mapper.Map<IEnumerable<CardDto>>(cards);
+
+            return Ok(cardsMapped);
         }
 
         [HttpGet("{cardId}")]
@@ -32,8 +40,10 @@ namespace LeagueOfRouletteAPI.Controllers
         }
 
         [HttpPost]
-        public ActionResult Post(Card card)
+        public ActionResult Post([FromBody] CreateCardDto cardDto)
         {
+            var card = _mapper.Map<Card>(cardDto);
+                
             _cardRepository.CreateCard(card);
 
             return Ok();

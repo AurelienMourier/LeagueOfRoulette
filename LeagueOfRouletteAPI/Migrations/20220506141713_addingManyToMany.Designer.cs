@@ -4,14 +4,16 @@ using LeagueOfRouletteAPI.Context;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace LeagueOfRouletteAPI.Migrations
 {
     [DbContext(typeof(LORContext))]
-    partial class LORContextModelSnapshot : ModelSnapshot
+    [Migration("20220506141713_addingManyToMany")]
+    partial class addingManyToMany
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -421,7 +423,7 @@ namespace LeagueOfRouletteAPI.Migrations
 
             modelBuilder.Entity("LeagueOfRouletteAPI.Models.Card", b =>
                 {
-                    b.HasOne("LeagueOfRouletteAPI.Models.RarityCard", "RarityCard")
+                    b.HasOne("LeagueOfRouletteAPI.Models.RarityCard", "Rarity")
                         .WithMany()
                         .HasForeignKey("RarityCardId")
                         .OnDelete(DeleteBehavior.Cascade)

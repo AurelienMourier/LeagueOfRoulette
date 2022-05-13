@@ -20,6 +20,7 @@ namespace LeagueOfRouletteAPI.Repositories.Classes
         public void CreateTypeCard(TypeCard typeCard)
         {
             _context.TypeCard.Add(typeCard);
+            _context.SaveChanges();
         }
 
         public void DeleteTypeCard(int typeCardId)
