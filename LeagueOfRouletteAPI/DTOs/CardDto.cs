@@ -1,4 +1,5 @@
-﻿using System;
+﻿using LeagueOfRouletteAPI.Models;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
@@ -14,5 +15,6 @@ namespace LeagueOfRouletteAPI.DTOs
         public string ImageUrl { get; set; }
         public string RarityCard { get; set; }
         public string TypeCard { get; set; }
+        public StatCard StatCard { get; set; }
     }
 }

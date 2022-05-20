@@ -1,4 +1,5 @@
-﻿using LeagueOfRouletteAPI.Models;
+﻿using AutoMapper;
+using LeagueOfRouletteAPI.Models;
 using LeagueOfRouletteAPI.Repositories.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 using System;
@@ -12,10 +13,12 @@ namespace LeagueOfRouletteAPI.Controllers
     [ApiController]
     public class BackpackController : Controller
     {
+        private readonly IMapper _mapper;
         private readonly IBackpackRepository _backpackRepository;
 
-        public BackpackController(IBackpackRepository backpackRepository)
+        public BackpackController(IMapper mapper, IBackpackRepository backpackRepository)
         {
+            _mapper = mapper;
             _backpackRepository = backpackRepository;
         }
 
