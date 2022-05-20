@@ -16,9 +16,7 @@ namespace LeagueOfRouletteAPI.Profiles
 
             CreateMap<Card, CardDto>()
                .ForMember(dest => dest.RarityCard, opt => opt.MapFrom(src => src.RarityCard.Name))
-               .ForMember(dest => dest.TypeCard, opt => opt.MapFrom(src => src.TypeCard.Name))
-               .ForMember(dest => dest.StatCardId, opt => opt.MapFrom(src => src.StatCard.StatCardId))
-               .ForMember(dest => dest.StatCardAD, opt => opt.MapFrom(src => src.StatCard.AD));
+               .ForMember(dest => dest.TypeCard, opt => opt.MapFrom(src => src.TypeCard.Name));
         }
     }
 }

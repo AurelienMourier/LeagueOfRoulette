@@ -15,7 +15,6 @@ namespace LeagueOfRouletteAPI.DTOs
         public string ImageUrl { get; set; }
         public string RarityCard { get; set; }
         public string TypeCard { get; set; }
-        public int StatCardId { get; set; }
-        public int StatCardAD { get; set; }
+        public StatCard StatCard { get; set; }
     }
 }

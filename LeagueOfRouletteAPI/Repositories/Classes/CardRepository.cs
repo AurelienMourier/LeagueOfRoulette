@@ -37,7 +37,7 @@ namespace LeagueOfRouletteAPI.Repositories.Classes
 
         public IEnumerable<Card> GetCards()
         {
-            return _context.Card.Include(c => c.TypeCard).Include(c => c.RarityCard).ToList();
+            return _context.Card.Include(c => c.TypeCard).Include(c => c.RarityCard).Include(c => c.StatCard).ToList();
         }
 
         public void UpdateCard(int cardId, Card card)
