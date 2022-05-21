@@ -1,12 +1,14 @@
-﻿using System;
+﻿using LeagueOfRouletteAPI.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace LeagueOfRouletteAPI.DTOs
+namespace LeagueOfRouletteAPI.Controllers
 {
     public class BackpackCardDto
     {
-        public CardDto Card { get; set; }
+        public int BackpackCardId { get; set; }
+        public Card Card { get; set; }
     }
 }

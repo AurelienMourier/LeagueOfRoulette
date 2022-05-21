@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using LeagueOfRouletteAPI.DTOs;
 using LeagueOfRouletteAPI.Models;
 using LeagueOfRouletteAPI.Repositories.Interfaces;
 using Microsoft.AspNetCore.Mvc;
@@ -23,9 +24,12 @@ namespace LeagueOfRouletteAPI.Controllers
         }
 
         [HttpGet]
-        public ActionResult<IEnumerable<Backpack>> GetBackpack()
+        public ActionResult<IEnumerable<BackpackDto>> GetBackpack()
         {
-            return Ok(_backpackRepository.GetBackpacks());
+            var backpacks = _backpackRepository.GetBackpacks();
+            var backpacksMapped = _mapper.Map<IEnumerable<CardDto>>(backpacks);
+
+            return Ok(backpacksMapped);
         }
 
         [HttpGet("{backpackId}")]
