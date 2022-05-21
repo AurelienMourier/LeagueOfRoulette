@@ -1,4 +1,5 @@
-﻿using LeagueOfRouletteAPI.Models;
+﻿using LeagueOfRouletteAPI.DTOs;
+using LeagueOfRouletteAPI.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,6 +10,6 @@ namespace LeagueOfRouletteAPI.Controllers
     public class BackpackCardDto
     {
         public int BackpackCardId { get; set; }
-        public Card Card { get; set; }
+        public CardDto Card { get; set; }
     }
 }
