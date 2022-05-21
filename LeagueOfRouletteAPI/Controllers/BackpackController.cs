@@ -39,8 +39,10 @@ namespace LeagueOfRouletteAPI.Controllers
         }
 
         [HttpPost]
-        public ActionResult Post(Backpack backpack)
+        public ActionResult Post([FromBody] CreateBackpackDto backpackDto)
         {
+            var backpack = _mapper.Map<Backpack>(backpackDto);
+
             _backpackRepository.CreateBackpack(backpack);
 
             return Ok();
