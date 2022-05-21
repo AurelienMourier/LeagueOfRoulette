@@ -27,7 +27,7 @@ namespace LeagueOfRouletteAPI.Controllers
         public ActionResult<IEnumerable<BackpackDto>> GetBackpack()
         {
             var backpacks = _backpackRepository.GetBackpacks();
-            var backpacksMapped = _mapper.Map<IEnumerable<CardDto>>(backpacks);
+            var backpacksMapped = _mapper.Map<IEnumerable<BackpackDto>>(backpacks);
 
             return Ok(backpacksMapped);
         }
