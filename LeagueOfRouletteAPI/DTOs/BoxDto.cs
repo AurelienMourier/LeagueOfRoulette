@@ -11,7 +11,8 @@ namespace LeagueOfRouletteAPI.DTOs
         public string Name { get; set; }
         public string Description { get; set; }
         public int Price { get; set; }
-        public ICollection<int> Cards { get; set; }
+        public ICollection<int> CardsId { get; set; }
         public int Level { get; set; }
+        public string State { get; set; }
     }
 }

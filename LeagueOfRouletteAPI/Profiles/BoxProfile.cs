@@ -13,6 +13,9 @@ namespace LeagueOfRouletteAPI.Profiles
         public BoxProfile()
         {
             CreateMap<BoxDto, Box>();
+
+            CreateMap<Box, BoxDto>()
+               .ForMember(dest => dest.State, opt => opt.MapFrom(src => src.StateBox.State));
         }
     }
 }
