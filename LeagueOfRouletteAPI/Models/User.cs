@@ -13,8 +13,5 @@ namespace LeagueOfRouletteAPI.Models
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public string Password { get; set; }
-        public int BackpackId { get; set; }
-        [ForeignKey("BackpackId")]
-        public Backpack Backpack { get; set; }
     }
 }
