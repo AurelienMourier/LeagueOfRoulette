@@ -23,6 +23,7 @@ namespace LeagueOfRouletteAPI.Context
         public DbSet<TypeCard> TypeCard { get; set; }
         public DbSet<Box> Box { get; set; }
         public DbSet<CardBox> CardBox { get; set; }
+        public DbSet<StateBox> StateBox { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

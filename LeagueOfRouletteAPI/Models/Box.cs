@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -13,5 +14,8 @@ namespace LeagueOfRouletteAPI.Models
         public int Price { get; set; }
         public ICollection<CardBox> CardBoxs { get; set; }
         public int Level { get; set; }
+        public int StateBoxId { get; set; }
+        [ForeignKey("StateBoxId")]
+        public StateBox StateBox { get; set; }
     }
 }

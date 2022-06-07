@@ -69,6 +69,7 @@ namespace LeagueOfRouletteAPI
             services.AddScoped<IStatCardRepository, StatCardRepository>();
             services.AddScoped<ITypeCardRepository, TypeCardRepository>();
             services.AddScoped<IBoxRepository, BoxRepository>();
+            services.AddScoped<IStateBoxRepository, StateBoxRepository>();
 
             services.AddControllers();
 
