@@ -4,14 +4,16 @@ using LeagueOfRouletteAPI.Context;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace LeagueOfRouletteAPI.Migrations
 {
     [DbContext(typeof(LORContext))]
-    partial class LORContextModelSnapshot : ModelSnapshot
+    [Migration("20220607092925_AddingLevelToUserAndBox")]
+    partial class AddingLevelToUserAndBox
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
