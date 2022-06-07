@@ -12,5 +12,6 @@ namespace LeagueOfRouletteAPI.Models
         public string Description { get; set; }
         public int Price { get; set; }
         public ICollection<CardBox> CardBoxs { get; set; }
+        public int Level { get; set; }
     }
 }
